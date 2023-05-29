@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1><span th:text="${heading}"></span></h1>
+    <form method="post" th:object="${item}" th:action="@{/inventory/update}">
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <input type="hidden" class="form-control" name="itemId" th:field="${item.itemId}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="itemName" class="col-sm-2 col-form-label">ItemName</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemName" name="itemName" required placeholder="Item Name" th:field="${item.itemName}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="itemPrice" class="col-sm-2 col-form-label">ItemPrice</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemPrice" name="itemPrice" required placeholder="Item Price" th:field="${item.itemPrice}" step="any">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="itemQty" class="col-sm-2 col-form-label">ItemQty</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemQty" name="itemQty" required placeholder="Item Quantity" th:field="${item.itemQty}">
+            </div>
+        </div>
+        <button type="submit" class="btn-primary btn">Save</button>
+    </form>
+</div>
+<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
